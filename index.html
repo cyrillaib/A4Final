@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GEOG 464 – A4 Final Demo – Abandoned Mines & Tailings in Québec</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <h1>Abandoned Mines & Tailings in Québec</h1>
+        <p class="subtitle">GEOG 464 – Final Project (A4 Demo)</p>
+      </div>
+      <button id="toggleSidebar" class="sidebar-toggle" aria-label="Toggle sidebar">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside id="sidebar" class="sidebar">
+      <section class="panel">
+        <h2>Project focus</h2>
+        <p class="small">
+          This demo explores abandoned mines and tailings sites in Québec, with
+          a focus on proximity to population centres, Indigenous communities,
+          and surface water (lakes).
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Impact filter</h2>
+        <label for="impactFilter" class="small">Filter sites by impact class:</label>
+        <select id="impactFilter">
+          <option value="all">All sites</option>
+          <option value="near_population">Near population centres</option>
+          <option value="near_indigenous">Near Indigenous / northern communities</option>
+          <option value="water_tailings">Water / tailings-related</option>
+          <option value="remote">Remote / other</option>
+        </select>
+
+        <label class="small-inline">
+          <input type="checkbox" id="toggleHeat" />
+          Show mine density heatmap
+        </label>
+
+        <p id="map-stats" class="muted small"></p>
+      </section>
+
+      <section class="panel">
+        <h2>Clicked site details</h2>
+        <div id="infoPanel" class="info-panel">
+          <p class="muted small">
+            Click on a mine / tailings site on the map to see its impact class,
+            a simple buffer, the nearest town, nearest Indigenous / northern
+            community, and nearest major water body (manual list).
+          </p>
+        </div>
+      </section>
+
+      <section class="panel small">
+        <h2>About the buffers</h2>
+        <p class="small muted">
+          The red circle around a site is not a real risk model. It is a
+          simple, hypothetical buffer to help visualise potential areas of
+          influence for discussion in class.
+        </p>
+      </section>
+    </aside>
+
+    <section class="map-wrapper">
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <script src="./map.js"></script>
+</body>
+</html>
